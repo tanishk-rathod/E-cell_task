@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+{% block body %}
+    <div class="center">
+      <h1>Register for StartUp Expo</h1>
+      <form role="form" action="/register" method="POST"> 
+              {{form.hidden_tag()}} 
+              <div class="form-group mt-3">
+                {% if form.name.errors %}
+                  {{ form.name(class="form-control form-control-lg is-invalid", placeholder="Your Name") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.name.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.name(class="form-control", placeholder="Your Name")}}
+                {% endif %}
+              </div>  
+              <div class="form-group mt-3">
+                
+                {% if form.email.errors %}
+                  {{ form.email(class="form-control form-control-lg is-invalid", placeholder="Your Email") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.email.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.email(class="form-control", placeholder="Your Email")}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% if form.phone.errors %}
+                  {{ form.phone(class="form-control form-control-lg is-invalid", placeholder="Phone") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.phone.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.phone(class="form-control", placeholder="Phone")}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% if form.startupname.errors %}
+                  {{ form.startupname(class="form-control form-control-lg is-invalid", placeholder="StartUp Name") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.startupname.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.startupname(class="form-control", placeholder="StartUp Name")}}
+                {% endif %}
+              </div>
+              <div class="form-group mt-3">
+                {% if form.teamnumber.errors %}
+                  {{ form.teamnumber(class="form-control form-control-lg is-invalid", placeholder="Number of team Members") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.teamnumber.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+                {% else %}
+                  {{form.teamnumber(class="form-control", placeholder="Number of team members")}}
+                {% endif %}
+              </div>
+              
+              <div class="text-center">{{form.submit(class="btn btn-secondary", placeholder="Register")}}</div>
+              
+            </form>
+    </div>
+
+  </body>
+</html>
+{% endblock %}
